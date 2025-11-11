@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.*;
 public class TrilhaController {
 
     private final TrilhaService service;
-    public TrilhaController(TrilhaService service) { this.service = service; }
+
+    public TrilhaController(TrilhaService service) {
+        this.service = service;
+    }
 
     @PostMapping
     public TrilhaResponse create(@RequestBody @Valid TrilhaRequest req) {

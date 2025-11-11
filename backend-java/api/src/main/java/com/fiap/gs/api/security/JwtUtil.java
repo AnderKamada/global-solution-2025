@@ -1,59 +1,53 @@
 package com.fiap.gs.api.security;
 
-import java.util.Date;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 
 import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class JwtUtil {
 
     private final SecretKey key;
     private final long expirationMs;
 
-    public JwtUtil(String base64Secret, long expirationMs) {
-        // chave precisa ter >= 256 bits -> gerei base64 com 64 bytes
-        this.key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(base64Secret));
+    public JwtUtil(
+            @Value("${app.jwt.secret}") String secret,
+            @Value("${app.jwt.expiration-ms}") long expirationMs) {
+        this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
         this.expirationMs = expirationMs;
     }
 
     public String generateToken(String username) {
         Date now = new Date();
         Date exp = new Date(now.getTime() + expirationMs);
-
         return Jwts.builder()
-                .setSubject(username)        // <- API do 0.11.5
+                .setSubject(username)
                 .setIssuedAt(now)
                 .setExpiration(exp)
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
 
-    public String getUsernameFromToken(String token) {
-        Claims claims = Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
-        return claims.getSubject();
+    public String getUsername(String token) {
+        return parseClaims(token).getBody().getSubject();
     }
 
-    public boolean validateToken(String token) {
+    public boolean isValid(String token) {
         try {
-            Claims claims = Jwts.parserBuilder()
-                    .setSigningKey(key)
-                    .build()
-                    .parseClaimsJws(token)
-                    .getBody();
-
-            Date exp = claims.getExpiration();
-            return exp != null && exp.after(new Date());
-        } catch (Exception ex) {
-            return false; // inválido (assinatura, expirado, malformado etc.)
+            parseClaims(token);
+            return true;
+        } catch (JwtException | IllegalArgumentException e) {
+            return false;
         }
+    }
+
+    private Jws<Claims> parseClaims(String token) {
+        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
     }
 }

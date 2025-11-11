@@ -159,7 +159,7 @@ C:\Users\Ander\OneDrive\Desktop\Documentos\global-solution-2025\backend-java\api
 C:\Users\Ander\OneDrive\Desktop\Documentos\global-solution-2025\backend-java\api\pom.xml
   spring_run.log:875:[DEBUG]   (f) projectArtifact = com.fiap.gs:api:jar:0.0.1-SNAPSHOT
   spring_run.log:876:[DEBUG]   (s) release = 17
-  spring_run.log:877:[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@1386313f
+  spring_run.log:877:[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@1491344a
   spring_run.log:963:[DEBUG] env.COMSPEC: C:\WINDOWS\system32\cmd.exe
   spring_run.log:964:[DEBUG] env.DRIVERDATA: C:\Windows\System32\Drivers\DriverData
   spring_run.log:965:[DEBUG] env.EFC_9580_1592913036: 1
@@ -231,21 +231,21 @@ C:\Users\Ander\OneDrive\Desktop\Documentos\global-solution-2025\backend-java\api
   spring_run.log:1282:[DEBUG]   (f) project = MavenProject: com.fiap.gs:api:0.0.1-SNAPSHOT @ 
 C:\Users\Ander\OneDrive\Desktop\Documentos\global-solution-2025\backend-java\api\pom.xml
   spring_run.log:1283:[DEBUG]   (s) release = 17
-  spring_run.log:1284:[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@1386313f
+  spring_run.log:1284:[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@1491344a
   spring_run.log:1285:[DEBUG]   (f) showCompilationChanges = false
-  spring_run.log:1434:2025-11-11T13:54:10.433-03:00  INFO 30316 --- [gs-api] [           main] org.hibernate.Version            
+  spring_run.log:1434:2025-11-11T13:56:34.099-03:00  INFO 28996 --- [gs-api] [           main] org.hibernate.Version            
         : HHH000412: Hibernate ORM core version 6.5.3.Final
-  spring_run.log:1435:2025-11-11T13:54:10.499-03:00  INFO 30316 --- [gs-api] [           main] 
+  spring_run.log:1435:2025-11-11T13:56:34.144-03:00  INFO 28996 --- [gs-api] [           main] 
 o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-  spring_run.log:1436:2025-11-11T13:54:11.062-03:00  INFO 30316 --- [gs-api] [           main] 
+  spring_run.log:1436:2025-11-11T13:56:34.603-03:00  INFO 28996 --- [gs-api] [           main] 
 o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-> spring_run.log:1437:2025-11-11T13:54:11.167-03:00  INFO 30316 --- [gs-api] [           main] 
+> spring_run.log:1437:2025-11-11T13:56:34.644-03:00  INFO 28996 --- [gs-api] [           main] 
 com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-> spring_run.log:1438:2025-11-11T13:54:12.540-03:00  WARN 30316 --- [gs-api] [           main] 
+> spring_run.log:1438:2025-11-11T13:56:35.853-03:00  WARN 28996 --- [gs-api] [           main] 
 o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 28P01
-> spring_run.log:1439:2025-11-11T13:54:12.542-03:00 ERROR 30316 --- [gs-api] [           main] 
+> spring_run.log:1439:2025-11-11T13:56:35.853-03:00 ERROR 28996 --- [gs-api] [           main] 
 o.h.engine.jdbc.spi.SqlExceptionHelper   : FATAL: autentica´┐¢´┐¢o do tipo senha falhou para o usu´┐¢rio "rm553449"
-  spring_run.log:1440:2025-11-11T13:54:12.544-03:00  WARN 30316 --- [gs-api] [           main] 
+  spring_run.log:1440:2025-11-11T13:56:35.858-03:00  WARN 28996 --- [gs-api] [           main] 
 o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
   spring_run.log:1441:
 > spring_run.log:1442:org.hibernate.exception.GenericJDBCException: unable to obtain isolated JDBC connection [FATAL: 
@@ -326,25 +326,25 @@ org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.d
 ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
   spring_run.log:1500:	... 35 common frames omitted
   spring_run.log:1501:
-> spring_run.log:1502:2025-11-11T13:54:12.571-03:00 ERROR 30316 --- [gs-api] [           main] 
+> spring_run.log:1502:2025-11-11T13:56:35.860-03:00 ERROR 28996 --- [gs-api] [           main] 
 j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: Unable to create requested service 
 [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 
 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
-> spring_run.log:1503:2025-11-11T13:54:12.571-03:00  WARN 30316 --- [gs-api] [           main] 
+> spring_run.log:1503:2025-11-11T13:56:35.860-03:00  WARN 28996 --- [gs-api] [           main] 
 ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: 
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class 
 path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested 
 service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please 
 set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be 
 provided)
-  spring_run.log:1504:2025-11-11T13:54:12.579-03:00  INFO 30316 --- [gs-api] [           main] 
+  spring_run.log:1504:2025-11-11T13:56:35.868-03:00  INFO 28996 --- [gs-api] [           main] 
 o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-  spring_run.log:1505:2025-11-11T13:54:12.648-03:00  INFO 30316 --- [gs-api] [           main] 
+  spring_run.log:1505:2025-11-11T13:56:35.901-03:00  INFO 28996 --- [gs-api] [           main] 
 .s.b.a.l.ConditionEvaluationReportLogger : 
   spring_run.log:1506:
 > spring_run.log:1507:Error starting ApplicationContext. To display the condition evaluation report re-run your application 
 with 'debug' enabled.
-> spring_run.log:1508:2025-11-11T13:54:12.713-03:00 ERROR 30316 --- [gs-api] [           main] o.s.boot.SpringApplication       
+> spring_run.log:1508:2025-11-11T13:56:35.949-03:00 ERROR 28996 --- [gs-api] [           main] o.s.boot.SpringApplication       
         : Application run failed
   spring_run.log:1509:
 > spring_run.log:1510:org.springframework.beans.factory.BeanCreationException: Error creating bean with name 
@@ -453,8 +453,8 @@ org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(Abstrac
   spring_run.log:1555:
   spring_run.log:1556:[INFO] ------------------------------------------------------------------------
   spring_run.log:1557:[INFO] BUILD FAILURE
-  spring_run.log:1559:[INFO] Total time:  13.635 s
-  spring_run.log:1560:[INFO] Finished at: 2025-11-11T13:54:12-03:00
+  spring_run.log:1559:[INFO] Total time:  11.424 s
+  spring_run.log:1560:[INFO] Finished at: 2025-11-11T13:56:36-03:00
   spring_run.log:1561:[INFO] ------------------------------------------------------------------------
 > spring_run.log:1562:[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.3.5:run (default-cli) 
 on project api: Process terminated with exit code: 1 -> [Help 1]

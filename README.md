@@ -72,8 +72,11 @@ Windows Server
 1. Instale o PostgreSQL (via instalador .exe)
 
 Selecionado:
+
 PostgreSQL server
+
 pgAdmin
+
 StackBuilder (opcional)
 
 -------------------------------------
@@ -85,17 +88,25 @@ CREATE DATABASE gs2025;
 
 ------------------------------------------
 3. Libere a porta 5432 no NSG da VM Windows:
+   
 Inbound rule
+
 Port: 5432
+
 Source: VirtualNetwork
+
 Protocol: TCP
+
 Allow
 
 -------------------------------------
 🗂 Configuração da VM Linux (API)
 1. Instale o Java e Maven
+   
 sudo apt update
+
 sudo apt install openjdk-17-jdk -y
+
 sudo apt install maven -y
 
 -------------------------------------
@@ -118,11 +129,17 @@ curl http://localhost:8080/usuarios
 
 --------------------------------------
 🔗 Configuração do ambiente Spring Boot
+
 application.properties:
+
 spring.datasource.url=jdbc:postgresql://IP-DA-VM-WINDOWS:5432/gs2025
+
 spring.datasource.username=postgres
+
 spring.datasource.password=SENHA
+
 spring.jpa.hibernate.ddl-auto=update
+
 spring.jpa.open-in-view=true
 
 -------------------------------------
@@ -139,8 +156,13 @@ Queries executadas no banco ✔
 ✔ Status Final
 
 Entrega 100% funcional, cumprindo os requisitos de:
+
 Infraestrutura em nuvem
+
 Banco separado da aplicação
+
 VMs isoladas e seguras
+
 Deploy manual
+
 Documentação completa

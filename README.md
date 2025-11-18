@@ -50,13 +50,21 @@ A aplicação expõe endpoints REST para operações CRUD relacionadas à entida
 🔧 Tecnologias Utilizadas
 
 Azure Virtual Machines
+
 Azure Network Security Groups (NSG)
+
 Java 17
+
 Spring Boot 3.3.5
+
 Maven
+
 PostgreSQL
+
 pgAdmin
+
 Linux (Ubuntu Server)
+
 Windows Server
 
 --------------------------------------

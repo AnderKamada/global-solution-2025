@@ -22,28 +22,16 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth -> auth
+            .anyRequest().permitAll()   // << liberar tudo para o vídeo
+        );
 
-        http
-            .csrf(AbstractHttpConfigurer::disable)
-            .sessionManagement(sm ->
-                    sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            )
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                        "/auth/**",
-                        "/api/hello",
-                        "/v3/api-docs/**",
-                        "/swagger-ui/**",
-                        "/swagger-ui.html",
-                        "/actuator/health"
-                ).permitAll()
-                .anyRequest().authenticated()
-            )
-            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+    return http.build();
+}
 
-        return http.build();
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
